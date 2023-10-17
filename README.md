@@ -23,4 +23,4 @@ To use Jenres, you need to follow the following procedure:
 
 At this point, you can start using Jenres by creating the first issue and naming @jenres-app in the issue.
 
-For any problems or questions, do not hesitate to contact by opening issues in the repository https://github.com/res-it/jenres-docs
+For any problems or questions, do not hesitate to contact by opening issues in the repository [github.com/res-it/jenres-docs](https://github.com/res-it/jenres-docs/issues)
