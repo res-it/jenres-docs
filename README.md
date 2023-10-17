@@ -10,7 +10,7 @@ To use Jenres, you need to follow the following procedure:
 1. Visit https://github.com/apps/jenres and click on "Configure" and install the app on your repository or your organization.
 
 ### Securely declare ownership of the repository
-2. Download the `jenres-cli.sh` file into the working copy of your public GitHub repository.
+2. Download from [here](https://raw.githubusercontent.com/res-it/jenres-docs/main/jenres-cli.sh) the `jenres-cli.sh` file into the working copy of your public GitHub repository.
 3. Run the command `./jenres-cli.sh generate-keys`. This command generates a pair of private and public keys that will be used to sign secrets.
 4. Commit the public key and push on the main branch.
 
