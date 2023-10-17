@@ -29,7 +29,9 @@ sub_help(){
   
 sub_generate_keys(){
     echo "Running generate-keys command"
-
+    
+    mkdir -p .jenres
+    
     openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4092 -outform pem -out .jenres/jenres_rsa_private.pem
     openssl pkey -in .jenres/jenres_rsa_private.pem -pubout -out .jenres/jenres_rsa_public.pem
 
