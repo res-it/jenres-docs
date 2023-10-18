@@ -21,6 +21,6 @@ To use Jenres, you need to follow the following procedure:
 
 ⚠️ Verify the data that will be shared with the Jenres APIs. Make sure the URL is of the type `https://jenres-api.aws.res-it.com`.
 
-At this point, you can start using Jenres by creating the first issue and naming @jenres-app in the issue.
+At this point, you can start using Jenres by creating the first issue and naming @jenres in the issue.
 
 For any problems or questions, do not hesitate to contact by opening issues in the repository [github.com/res-it/jenres-docs](https://github.com/res-it/jenres-docs/issues)
