@@ -41,13 +41,13 @@ It is also possible to schedule a set of duties that you wish to be carried out 
 
 
 
->    duties:
+>      duties:
 >
->    head_comment:
+>        head_comment:
 >
->        cron: "* * * * *"
+>          cron: "* * * * *"
 >
->        prompt: Add a docstring with Code Description at the beginning of each module in {file_path}, if it is missing
+>          prompt: Add a docstring with Code Description at the beginning of each module in {file_path}, if it is missing
 
 
 # 
