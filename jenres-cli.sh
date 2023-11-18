@@ -56,9 +56,14 @@ sub_register_secrets(){
         # Function to generate the secret and signature
     generate_secret(){
         openai_api_key=$1
+        sonarcloud_token=$2
 
         # Generate the secret
-        secret="{\"openai_api_key\":\"$openai_api_key\"}"
+        if [ ! -z "$sonarcloud_token" ]; then
+            secret="{\"openai_api_key\":\"$openai_api_key\",\"sonar_token\":\"$sonarcloud_token\"}"
+        else
+            secret="{\"openai_api_key\":\"$openai_api_key\"}"
+        fi
 
         echo $secret
     }
@@ -154,9 +159,10 @@ sub_register_secrets(){
         fi
     fi
     read -p "Enter OPENAI_API_KEY: " openai_api_key
+    read -p "Enter SonarCloud token [optional, empty to skip]: " sonarcloud_token
 
     # Generate the secret and signature
-    secret=$(generate_secret $openai_api_key)
+    secret=$(generate_secret $openai_api_key $sonarcloud_token)
     signature=$(generate_signature $private_key_path $secret)
 
     # Print a summary of the parameters
@@ -164,6 +170,7 @@ sub_register_secrets(){
     echo "Private Key Path: $private_key_path"
     echo "Repository: $repository"
     echo "OPENAI_API_KEY: $openai_api_key"
+    echo "SonarCloud token: $sonarcloud_token"
 
     # Ask for confirmation before uploading
     read -p "Are you sure you want to upload these secrets? (y/n) " confirm
