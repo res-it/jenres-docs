@@ -37,10 +37,12 @@ sub_generate_keys(){
 
     # add .jenres/jenres_rsa_public.pem and .jenres/jenres_rsa_private.pem to gitignore file if not already there
     if ! grep -q ".jenres/jenres_rsa_public.pem" .gitignore; then
+        echo "" >> .gitignore
         echo ".jenres/jenres_rsa_public.pem" >> .gitignore
     fi
 
     if ! grep -q ".jenres/jenres_rsa_private.pem" .gitignore; then
+        echo "" >> .gitignore
         echo ".jenres/jenres_rsa_private.pem" >> .gitignore
     fi
 
