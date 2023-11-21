@@ -26,18 +26,18 @@ To use Jenres, you need to follow the following procedure:
 
 #### listen function
 
-It is possible to solve your git issue with **jenres listen**. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by jenres at end of the elaboration.
+It is possible to solve your git issue with **Jenres Listen**. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by jenres at end of the elaboration.
 
-| Issue title   | an example with unittest
-| Issue content | `@jenres create a folder named "tests/", where there will be all the unittests, and write unittests for the class methods in the repository.
+| Issue title   | translate comments and docstrings in english
+| Issue content | @jenres Please review the file 'hello_world.py' and translate any non-English comments and docstrings into English
 
 #### housekeeping function
 
-It is also possible to schedule a set of duties that you wish to be carried out periodically with **jenres housekeeping** function. 
+It is also possible to schedule a set of duties that you wish to be carried out periodically with **Jenres Housekeeping** function. 
 
 - Add a file called "housekeeping.yaml" inside the ".jenres/" folder.
 
-- Add the detail about the duty and time scheduling, for example `* * * * *` check [here](https://en.wikipedia.org/wiki/Cron) for more information
+- Add the detail about the duty and time scheduling, for example `* * * * *` check [here](https://en.wikipedia.org/wiki/Cron) for more information. You can check your cron expressions [here](https://crontab.guru/).
 
 
 
@@ -49,6 +49,8 @@ It is also possible to schedule a set of duties that you wish to be carried out 
 >
 >          prompt: Add a docstring with Code Description at the beginning of each module in {file_path}, if it is missing
 
+
+ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
 
 # 
 
