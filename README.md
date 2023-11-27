@@ -21,6 +21,37 @@ To use Jenres, you need to follow the following procedure:
 
 ⚠️ Verify the data that will be shared with the Jenres APIs. Make sure the URL is of the type `https://jenres-api.aws.res-it.com`.
 
-At this point, you can start using Jenres by creating the first issue and naming @jenres in the issue.
+
+### Application examples
+
+#### listen function
+
+It is possible to solve your git issue with **Jenres Listen**. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by jenres at end of the elaboration.
+
+| Issue title   | translate comments and docstrings in english
+| Issue content | @jenres Please review the file 'hello_world.py' and translate any non-English comments and docstrings into English
+
+#### housekeeping function
+
+It is also possible to schedule a set of duties that you wish to be carried out periodically with **Jenres Housekeeping** function. 
+
+- Add a file called "housekeeping.yaml" inside the ".jenres/" folder.
+
+- Add the detail about the duty and time scheduling, for example `* * * * *` check [here](https://en.wikipedia.org/wiki/Cron) for more information. You can check your cron expressions [here](https://crontab.guru/).
+
+
+
+>      duties:
+>
+>        head_comment:
+>
+>          cron: "* * * * *"
+>
+>          prompt: Add a docstring with Code Description at the beginning of each module in {file_path}, if it is missing
+
+
+ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
+
+# 
 
 For any problems or questions, do not hesitate to contact by opening issues in the repository [github.com/res-it/jenres-docs](https://github.com/res-it/jenres-docs/issues)
