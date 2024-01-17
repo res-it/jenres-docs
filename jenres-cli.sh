@@ -30,26 +30,30 @@ sub_help(){
 sub_generate_keys(){
     echo "Running generate-keys command"
     
-    mkdir -p .jenres
-    
-    openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4092 -outform pem -out .jenres/jenres_rsa_private.pem
-    openssl pkey -in .jenres/jenres_rsa_private.pem -pubout -out .jenres/jenres_rsa_public.pem
+    mkdir -p ${jenres_config_folder_prefix}
+    openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4092 -outform pem -out ${jenres_config_folder_prefix}/jenres_rsa_private.pem
+    openssl pkey -in ${jenres_config_folder_prefix}/jenres_rsa_private.pem -pubout -out ${jenres_config_folder_prefix}/jenres_rsa_public.pem
 
-    cp .jenres/jenres_rsa_public.pem .jenres/pub.key
+    cp ${jenres_config_folder_prefix}/jenres_rsa_public.pem ${jenres_config_folder_prefix}/pub.key
 
-    # add .jenres/jenres_rsa_public.pem and .jenres/jenres_rsa_private.pem to gitignore file if not already there
-    if ! grep -q ".jenres/jenres_rsa_public.pem" .gitignore; then
+    # add ${jenres_config_folder_prefix}/jenres_rsa_public.pem and ${jenres_config_folder_prefix}/jenres_rsa_private.pem to gitignore file if not already there
+    if ! grep -q "${jenres_config_folder_prefix}/jenres_rsa_public.pem" .gitignore; then
         echo "" >> .gitignore
-        echo ".jenres/jenres_rsa_public.pem" >> .gitignore
+        echo "${jenres_config_folder_prefix}/jenres_rsa_public.pem" >> .gitignore
     fi
 
-    if ! grep -q ".jenres/jenres_rsa_private.pem" .gitignore; then
+    if ! grep -q "${jenres_config_folder_prefix}/jenres_rsa_private.pem" .gitignore; then
         echo "" >> .gitignore
-        echo ".jenres/jenres_rsa_private.pem" >> .gitignore
+        echo "${jenres_config_folder_prefix}/jenres_rsa_private.pem" >> .gitignore
     fi
 
-    # perform git add on .gitignore and .jenres/pub.key
-    git add .gitignore .jenres/pub.key
+    if ! grep -q "${jenres_config_folder_prefix}/jenres_rsa_private.pem" .gitignore; then
+        echo "" >> .gitignore
+        echo "${jenres_config_folder_prefix}/jenres_rsa_private.pem" >> .gitignore
+    fi
+
+    # perform git add on .gitignore and ${jenres_config_folder_prefix}/pub.key
+    git add .gitignore ${jenres_config_folder_prefix}/pub.key
 
     echo "Keys generated and the public key has been added to Git index."
     echo "Now you should review the changes, commit and push them."
@@ -145,8 +149,8 @@ sub_register_secrets(){
     done
 
     # Set defaults if parameters were not provided
-    url=${url:-"https://jenres-api.aws.res-it.com/secrets"}
-    private_key_path=${private_key_path:-".jenres/jenres_rsa_private.pem"}
+    url=${url:-"https://jenres-test-api.aws.res-it.com/secrets"}
+    private_key_path=${private_key_path:-"${jenres_config_folder_prefix}/jenres_rsa_private.pem"}
 
     # If the repository parameter was not provided, extract the repository name from the git remote URL
     if [ -z "$repository" ]; then
