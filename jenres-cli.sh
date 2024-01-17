@@ -15,7 +15,7 @@
 set -e
 
 ProgName=$(basename $0)
-  
+
 sub_help(){
     echo "Usage: $ProgName <subcommand> [options]\n"
     echo "Subcommands:"
@@ -133,14 +133,21 @@ sub_register_secrets(){
                 shift # past value
                 ;;
             -h|--help)
-                echo "Usage: $0 [--url <url>] [--private-key <private_key_path>] [--repo <repository>]"
+                echo "Usage: $0 [--url <url>] [--private-key <private_key_path>] [--repo <repository>] [--scrooj]"
                 echo ""
                 echo "Options:"
                 echo "  --url          URL of the secrets API. Default is 'https://jenres-api.aws.res-it.com/secrets'."
-                echo "  --private-key  Path to the private key file. Default is '.jenres/jenres_rsa_private.pem'."
+                echo "  --private-key  Path to the private key file. Default is '${jenres_config_folder_prefix}/jenres_rsa_private.pem'."
+                echo "  --scrooj       Use the '.scrooj' configuration folder and test API URL."
                 echo "  --repo         Name of the repository. If not provided, it will be extracted from the git remote URL."
                 echo "  -h, --help     Show this help message."
                 exit 0
+                ;;
+            --scrooj)
+                echo "Using Jenres test environment: Scrooj"
+                jenres_config_folder_prefix=".scrooj"
+                url="https://jenres-test-api.aws.res-it.com/secrets"
+                shift # past argument
                 ;;
             *)    # unknown option
                 shift # past argument
@@ -148,8 +155,9 @@ sub_register_secrets(){
         esac
     done
 
-    # Set defaults if parameters were not provided
-    url=${url:-"https://jenres-test-api.aws.res-it.com/secrets"}
+    # Set default values if not provided
+    jenres_config_folder_prefix=${jenres_config_folder_prefix:-".jenres"}
+    url=${url:-"https://jenres-api.aws.res-it.com/secrets"}
     private_key_path=${private_key_path:-"${jenres_config_folder_prefix}/jenres_rsa_private.pem"}
 
     # If the repository parameter was not provided, extract the repository name from the git remote URL
