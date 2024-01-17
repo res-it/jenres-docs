@@ -164,7 +164,7 @@ sub_register_secrets(){
             --scrooj)
                 echo "Using Jenres test environment: Scrooj"
                 jenres_config_folder_prefix=".scrooj"
-                url="https://jenres-test-api.aws.res-it.com/secrets"
+                url="https://scrooj-api.aws.res-it.com/secrets"
                 shift # past argument
                 ;;
             *)    # unknown option
