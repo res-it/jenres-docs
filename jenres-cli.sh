@@ -29,7 +29,25 @@ sub_help(){
   
 sub_generate_keys(){
     echo "Running generate-keys command"
-    
+
+    # Parse command line arguments for generate-keys
+    while [[ $# -gt 0 ]]; do
+        key="$1"
+
+        case $key in
+            --scrooj)
+                jenres_config_folder_prefix=".scrooj"
+                shift # past argument
+                ;;
+            *)    # unknown option
+                shift # past argument
+                ;;
+        esac
+    done
+
+    # Set default folder prefix if not provided
+    jenres_config_folder_prefix=${jenres_config_folder_prefix:-".jenres"}
+
     mkdir -p ${jenres_config_folder_prefix}
     openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4092 -outform pem -out ${jenres_config_folder_prefix}/jenres_rsa_private.pem
     openssl pkey -in ${jenres_config_folder_prefix}/jenres_rsa_private.pem -pubout -out ${jenres_config_folder_prefix}/jenres_rsa_public.pem
