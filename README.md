@@ -55,3 +55,4 @@ It is also possible to schedule a set of duties that you wish to be carried out 
 # 
 
 For any problems or questions, do not hesitate to contact by opening issues in the repository [github.com/res-it/jenres-docs](https://github.com/res-it/jenres-docs/issues)
+
