@@ -22,6 +22,7 @@ To use Jenres, you need to follow the following procedure:
 ⚠️ Verify the data that will be shared with the Jenres APIs. Make sure the URL is of the type `https://jenres-api.aws.res-it.com`.
 
 ### Register your SonarCloud token on Jenres to be used for this repository - Optional
+Jenres supports SonarCloud, a cloud-based code analysis service, engineered to identify coding issues across 26 diverse programming languages.
 6. Once you have correctly configured SonarCloud, generate a token from [here](https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
 
 
