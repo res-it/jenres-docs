@@ -25,16 +25,16 @@ To use Jenres, you need to follow the following procedure:
 6. Once you have correctly configured SonarCloud, generate a token from [here](https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
 
 
-### Application examples
+### Jenres Features
 
-#### listen function
+#### Listen function
 
 It is possible to solve your git issue with **Jenres Listen**. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by jenres at end of the elaboration.
 
 | Issue title   | translate comments and docstrings in english
 | Issue content | @jenres Please review the file 'hello_world.py' and translate any non-English comments and docstrings into English
 
-#### housekeeping function
+#### Housekeeping function
 
 It is also possible to schedule a set of duties that you wish to be carried out periodically with **Jenres Housekeeping** function. 
 
@@ -69,6 +69,7 @@ You can set up duties that act when some coding rules are violated.
              - ...          
 
 ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
+
 ℹ️ Note: you can find your Sonar project key in the Information section of your SonarCloud account.
 
 # 
