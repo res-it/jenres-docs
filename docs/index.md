@@ -23,6 +23,7 @@ To use Jenres, you need to follow the following procedure:
 
 ### Register your SonarCloud token on Jenres to be used for this repository - Optional
 Jenres supports SonarCloud, a cloud-based code analysis service, engineered to identify coding issues across 26 diverse programming languages.
+
 6. Once you have correctly configured SonarCloud, generate a token from [here](https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
 
 
