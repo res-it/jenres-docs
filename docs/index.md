@@ -65,8 +65,8 @@ You can set up duties that act when some coding rules are violated.
 >          sonar_project_key: my_project_key
 >           
 >          sonar_rules:
-             -python:S1481
-             - ...          
+            - python:S1481
+            - ...          
 
 ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
 
