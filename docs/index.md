@@ -22,7 +22,7 @@ To use Jenres, you need to follow the following procedure:
 ⚠️ Verify the data that will be shared with the Jenres APIs. Make sure the URL is of the type `https://jenres-api.aws.res-it.com`.
 
 ### Register your SonarCloud token on Jenres to be used for this repository - Optional
-6. Once you have correctly configured SonarCloud, generate a token from [here] (https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
+6. Once you have correctly configured SonarCloud, generate a token from [here](https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
 
 
 ### Application examples
@@ -62,14 +62,14 @@ You can set up duties that act when some coding rules are violated.
 >
 >          cron: "* * * * *"
 >
->          sonar_project_key*: my_project_key
+>          sonar_project_key: my_project_key
 >           
 >          sonar_rules:
              -python:S1481
              - ...          
 
 ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
-* you can find your Sonar project key in the Information section of your SonarCloud account.
+ℹ️ Note: you can find your Sonar project key in the Information section of your SonarCloud account.
 
 # 
 
