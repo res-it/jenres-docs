@@ -4,32 +4,52 @@ Jenres is a tool that allows you to use OpenAI's GPT-4 AI to automatically respo
 It is free to use for public repositories on GitHub, but you need to provide the OpenAI API key that will be charged for GPT-4 usage.
 
 # Start using Jenres
-To use Jenres, you need to follow the following procedure:
+
+To start utilizing JenRes, follow the onboarding process through CLI, as provided below. This is a secure and verified procedure to ensure that JenRes operates under the highest security and efficiency standards, making it a valuable tool for developers and organizations.  
+
+### Requirements
+JenRes is available for free to maintainers of open-source projects hosted on GitHub. For more advanced uses of the tool, please contact us.  
+
+To use JenRes, an OpenAI API key is required. Currently, JenRes supports OpenAI's GPT-4. JenRes’ users are responsible for their own GPT-4 API costs, which will be billed directly to their OpenAI account. Users can monitor the costs of each API call by reviewing the pull request message associated with the specific task.
 
 ### Install the Jenres Github App in your repository
-1. Visit https://github.com/apps/jenres and click on "Configure" and install the app on your repository or your organization. Follow the interface instructions to install the app on your repository. Remember, the repository must be public to use Jenres for free.
+1. Create a public GitHub Repository.  
+
+2. Visit [here](https://github.com/apps/jenres) and click on 'Configure'. Follow the interface instructions to install the app on your repository. Remember, the repository must be public to use JenRes for free.
 
 ### Securely declare ownership of the repository
-2. Download from [here](https://raw.githubusercontent.com/res-it/jenres-docs/main/jenres-cli.sh) the `jenres-cli.sh` file and place it in the working copy of your GitHub repository.
-3. Run the command `./jenres-cli.sh generate-keys` from the CLI. This command generates a pair of private and public keys that will be used to sign secrets.
-4. Commit the public key and push on the main branch.
+3. Download from [here](https://raw.githubusercontent.com/res-it/jenres-docs/main/jenres-cli.sh) the `jenres-cli.sh` file and place it in the working copy of your GitHub repository.
 
-### Register your OpenAI API key on Jenres to be used for this repository 
-5. Run `./jenres-cli.sh register-secrets` and enter your OPENAI API KEY enabled for GPT4.
+4. Run the command `./jenres-cli.sh generate-keys` from the CLI. This command generates a pair of private and public keys that will be used to sign secrets.
 
-ℹ️ Note: the use of GPT4 will be charged to the user. Without the OpenAI API key, Jenres will not work. It goes without saying that we will only use your API key for the purpose of integrating it with Jenres on your repository.
+5. Commit the public key and push on the main branch. Once you have done so, you can see the folder `.jenres` on the main branch of your git repository with the `pub.key` file inside.
 
-⚠️ Verify the data that will be shared with the Jenres APIs. Make sure the URL is of the type `https://jenres-api.aws.res-it.com`.
+### Register your OpenAI API key on Jenres 
+6. Run `./jenres-cli.sh register-secrets` and enter your OPENAI API KEY enabled for GPT4.
 
-### Register your SonarCloud token on Jenres to be used for this repository - Optional
-Jenres supports SonarCloud, a cloud-based code analysis service, engineered to identify coding issues across 26 diverse programming languages.
+ℹ️ Note: the use of GPT-4 will be charged to the user. JenRes will utilize your API key exclusively for accessing GPT-4 services on your repository.
 
-6. Once you have correctly configured SonarCloud, generate a token from [here](https://sonarcloud.io/account/security). Enter your SonarCloud token in the CLI.
+⚠️ Verify the data that will be shared with the Jenres APIs.
 
+### Register your SonarCloud token on Jenres - Optional
+Jenres supports SonarCloud, a cloud-based code analysis service, engineered to identify coding issues across 26 diverse programming languages. With SonarCloud, the code undergoes a thorough examination against a comprehensive set of rules. These rules cover various aspects of code quality, including maintainability, reliability, and security concerns. JenRes can be configured to monitor and address a specific set of coding rules.  
 
-### Jenres Features
+7. Once you have correctly configured SonarCloud for your repository (see for procedure below), enter your SonarCloud token in the CLI.
 
-#### Listen function
+# SonarCloud Installation - Optional 
+To use SonarCloud with JenRes: 
+
+1. Visit [here](https://github.com/apps/sonarcloud) and click on ‘Configure’. The procedure for installing the SonarCloud App is the same as that for installing the JenRes App. Select your repositories and save your choice.  
+
+2. In the SonarCloud interface, choose `Analyze new project` and provide the name of the project you want to be analyzed. Choose the settings which best suit your needs and click on `Create New Project`.
+
+3. Click on  `Information` to retrieve the  `project-key`. Place it in the housekeeping.yaml file to enable Jenres Housekeeping function.
+
+4. Generate a token from [here](https://sonarcloud.io/account/security). Copy and store the token; you will use it to register secrets on JenRes.
+
+# Jenres' Features
+
+#### Issue Handling feature
 
 It is possible to solve your git issue with **Jenres Listen**. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by jenres at end of the elaboration.
 
@@ -72,7 +92,6 @@ You can set up duties that act when some coding rules are violated.
 
 ℹ️ Note: It is possible to tell Jenres the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
 
-ℹ️ Note: you can find your Sonar project key in the Information section of your SonarCloud account.
 
 # 
 
