@@ -1,10 +1,8 @@
 # Public JenRes Documentation
-
 JenRes is a tool that allows you to use OpenAI's GPT-4 AI to automatically respond to issues and schedule duties on GitHub.
 It is free to use for public repositories on GitHub, but you need to provide the OpenAI API key that will be charged for GPT-4 usage.
 
 # Start using JenRes
-
 To start utilizing JenRes, follow the onboarding process through CLI, as provided below. This is a secure and verified procedure to ensure that JenRes operates under the highest security and efficiency standards, making it a valuable tool for developers and organizations.  
 
 ### Requirements
@@ -50,14 +48,12 @@ To use SonarCloud with JenRes:
 # JenRes' Features
 
 #### Issue Handling feature
-
 It is possible to solve your git issue with **Issue Handling** feature. In order to do that, create a new issue with a title and naming `@jenres` in the issue content. A pull request will be opened by JenRes at end of the elaboration.
 
 | Issue title   | translate comments and docstrings in english
 | Issue content | @jenres Please review the file 'hello_world.py' and translate any non-English comments and docstrings into English
 
 #### Housekeeping function
-
 It is also possible to schedule a set of duties that you wish to be carried out periodically with **Housekeeping** function. 
 
 - Add a file called "housekeeping.yaml" inside the ".jenres/" folder.
@@ -92,7 +88,10 @@ You can set up duties that act when some coding rules are violated.
 
 ℹ️ Note: It is possible to tell JenRes the path of the file to be reviewd by `@jenres`, or use the `{file_path}` mechanism so that `@jenres` reviews every file in the repository.
 
+# End of the execution
+JenRes will open a pull/request at the end of each elaboration phase. Users can review the work done and decide whether to merge the JenRes branch with the main branch. JenRes branches have a specific naming convention to distinguish them from user-created branches: 
 
-# 
+- *jenres/issue-number* for the issue-handling function 
+- *jenres/hk/name_of_the_duty* for the housekeeping function. 
 
 For any problems or questions, do not hesitate to contact by opening issues in the repository [github.com/res-it/jenres-docs](https://github.com/res-it/jenres-docs/issues)
