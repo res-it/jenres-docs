@@ -1,4 +1,8 @@
 # Public JENRES Documentation
+
+development: Open Alpha 
+version: 0.15.2
+
 JENRES is a tool that allows you to use OpenAI's GPT-4 AI to automatically respond to issues and schedule duties on GitHub.
 It is free to use for public repositories on GitHub, but you need to provide the OpenAI API key that will be charged for GPT-4 usage.
 
